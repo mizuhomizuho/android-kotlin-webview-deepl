@@ -51,6 +51,13 @@ class MainActivity : ComponentActivity() {
         super.onSaveInstanceState(outState)
         val webView: WebView = findViewById(R.id.webView)
         CookieManagerHelper().saveCookies(this, webView)
+        webView.saveState(outState)
+    }
+
+    override fun onRestoreInstanceState(savedInstanceState: Bundle) {
+        super.onRestoreInstanceState(savedInstanceState);
+        val webView: WebView = findViewById(R.id.webView)
+        webView.restoreState(savedInstanceState)
     }
 }
 
